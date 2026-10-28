@@ -6,7 +6,7 @@ import { contactPageSchema } from '../../lib/seo';
 const lang = 'fr';
 const description = "Écrivez-nous si un congé scolaire, un jour férié ou un jour de remplacement vous semble faux, ou pour afficher le compte à rebours sur votre propre site.";
 ---
-<PageLayout title="Contact BE Schoolvakanties : signaler une erreur, widget" description={description} lang={lang} noindex={true} jsonLd={[contactPageSchema({ name: 'Contact', description, path: route('contact', lang), lang })]} breadcrumbs={[{ label: 'Contact' }]} showAuthor={false}>
+<PageLayout title="Contact Vakantieteller : signaler une erreur, widget" description={description} lang={lang} noindex={true} jsonLd={[contactPageSchema({ name: 'Contact', description, path: route('contact', lang), lang })]} breadcrumbs={[{ label: 'Contact' }]} showAuthor={false}>
   <div class="prose prose-slate max-w-none">
     <h1>Contact</h1>
     <p>Adresse e-mail, réponse en général sous une semaine : <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.</p>

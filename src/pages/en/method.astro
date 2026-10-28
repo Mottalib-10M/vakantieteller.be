@@ -9,7 +9,7 @@ import { displayDate } from '../../lib/format';
 const lang = 'en';
 const path = route('method', lang);
 const title = 'School holidays in Belgium: method, sources and checks';
-const description = 'How BE Schoolvakanties works: Flemish rules tested against vlaanderen.be, French and German-speaking calendars as published, ten holidays from the 1974 Act.';
+const description = 'How Vakantieteller works: Flemish rules tested against vlaanderen.be, French and German-speaking calendars as published, ten holidays from the 1974 Act.';
 const s = (k: string, t: string) => srcLink(k, lang, t);
 const d = (x: string) => displayDate(x, 'en-GB');
 const p10 = K.optimaliseer(2027, 10, { vervanging: 'volgende' });
@@ -17,7 +17,7 @@ const wd27 = K.werkdagen(2027).reduce((a, b) => a + b, 0);
 ---
 <PageLayout title={title} description={description} lang={lang} jsonLd={[webPageSchema({ name: 'Method', description, path, lang }), breadcrumbSchema([{ name: 'Home', path: route('home', lang) }, { name: 'Method', path }])]} breadcrumbs={[{ label: 'Method' }]}>
   <article class="prose prose-slate max-w-none">
-    <h1>How BE Schoolvakanties calculates</h1>
+    <h1>How Vakantieteller calculates</h1>
     <p>Every tool runs in your browser; the Community, year or leave days you choose never leave your device. The calendars and legal texts were last read on {d(K.P.retrieved_at)}.</p>
 
     <h2>Flemish Community: computed and tested</h2>

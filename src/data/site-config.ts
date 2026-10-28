@@ -1,8 +1,8 @@
 /** Configuration centrale du site (générée par new-site.py). */
-export const SITE_URL = "https://be-schoolvakanties.example";
-export const SITE_NAMES: Record<string, string> = {"nl": "BE Schoolvakanties", "fr": "BE Schoolvakanties", "en": "BE Schoolvakanties"};
+export const SITE_URL = "https://vakantieteller.be";
+export const SITE_NAMES: Record<string, string> = {"nl": "Vakantieteller", "fr": "Vakantieteller", "en": "Vakantieteller"};
 // Partie du nom affichée en couleur dans l'en-tête (RECETTE §10.3), « » pour aucune.
-export const BRAND_ACCENT = "Schoolvakanties";
+export const BRAND_ACCENT = "teller";
 export const LANG_TAGS: Record<string, string> = {"nl": "nl-BE", "fr": "fr-BE", "en": "en-BE"};
 export const OG_LOCALES: Record<string, string> = {"nl": "nl_BE", "fr": "fr_BE", "en": "en_GB"};
 export const LOCALE_TAG = 'nl-BE';
@@ -20,7 +20,7 @@ export const AUTHOR_DESC: Record<string, string> = {"nl": "Radif Partners leest 
  *  themes reellement traites par le site, pas une liste de mots-cles : un sujet
  *  declare ici sans page qui le couvre est une declaration fausse. */
 export const KNOWS_ABOUT: Record<string, string[]> = {"nl": ["Schoolvakanties in de Vlaamse Gemeenschap", "Schoolkalender van de Fédération Wallonie-Bruxelles", "Wettelijke feestdagen in België", "Vervangingsdagen en brugdagen", "Werkdagen en weeknummers"], "fr": ["Vacances scolaires en Communauté flamande", "Calendrier scolaire de la Fédération Wallonie-Bruxelles", "Jours fériés légaux en Belgique", "Jours de remplacement et ponts", "Jours ouvrables et numéros de semaine"], "en": ["School holidays in the Flemish Community", "School calendar of the Wallonia-Brussels Federation", "Statutory public holidays in Belgium", "Replacement days and bridge days", "Working days and week numbers"]};
-export const CONTACT_EMAIL = "contact@be-schoolvakanties.example";
+export const CONTACT_EMAIL = "contact@vakantieteller.be";
 export const THEME_COLOR = '#C8102E';
 export const LOGO_SYMBOL = 'SV';
 export const BING_VERIFY_CODE = '';

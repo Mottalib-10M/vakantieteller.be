@@ -9,7 +9,7 @@ import { displayDate } from '../../lib/format';
 const lang = 'fr';
 const path = route('method', lang);
 const title = 'Vacances scolaires en Belgique : méthode, sources et tests';
-const description = 'Comment BE Schoolvakanties calcule : calendrier FWB repris tel que publié, règles flamandes testées contre vlaanderen.be, dix jours fériés de la loi de 1974.';
+const description = 'Comment Vakantieteller calcule : calendrier FWB repris tel que publié, règles flamandes testées contre vlaanderen.be, dix jours fériés de la loi de 1974.';
 const s = (k: string, t: string) => srcLink(k, lang, t);
 const d = (x: string) => displayDate(x, 'fr-BE');
 const p10 = K.optimaliseer(2027, 10, { vervanging: 'volgende' });
@@ -17,7 +17,7 @@ const wd27 = K.werkdagen(2027).reduce((a, b) => a + b, 0);
 ---
 <PageLayout title={title} description={description} lang={lang} jsonLd={[webPageSchema({ name: 'Méthode', description, path, lang }), breadcrumbSchema([{ name: 'Accueil', path: route('home', lang) }, { name: 'Méthode', path }])]} breadcrumbs={[{ label: 'Méthode' }]}>
   <article class="prose prose-slate max-w-none">
-    <h1>Comment BE Schoolvakanties calcule</h1>
+    <h1>Comment Vakantieteller calcule</h1>
     <p>Tous les outils fonctionnent dans votre navigateur : la Communauté, l’année ou les jours de congé que vous choisissez ne quittent pas votre appareil. Les calendriers et les textes ont été relus pour la dernière fois le {d(K.P.retrieved_at)}.</p>
 
     <h2>Fédération Wallonie-Bruxelles : repris date par date</h2>

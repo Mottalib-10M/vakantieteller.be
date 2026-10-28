@@ -9,7 +9,7 @@ import { displayDate } from '../../lib/format';
 const lang = 'nl';
 const path = route('method', lang);
 const title = 'Schoolvakanties België: methode, bronnen en controles';
-const description = 'Zo rekent BE Schoolvakanties: Vlaamse regels getest tegen vlaanderen.be, kalenders FWB en Ostbelgien zoals gepubliceerd, tien feestdagen uit de wet van 1974.';
+const description = 'Zo rekent Vakantieteller: Vlaamse regels getest tegen vlaanderen.be, kalenders FWB en Ostbelgien zoals gepubliceerd, tien feestdagen uit de wet van 1974.';
 const s = (k: string, t: string) => srcLink(k, lang, t);
 const d = (x: string) => displayDate(x, 'nl-BE');
 const p10 = K.optimaliseer(2027, 10, { vervanging: 'volgende' });
@@ -17,7 +17,7 @@ const wd27 = K.werkdagen(2027).reduce((a, b) => a + b, 0);
 ---
 <PageLayout title={title} description={description} lang={lang} jsonLd={[webPageSchema({ name: 'Methode', description, path, lang }), breadcrumbSchema([{ name: 'Home', path: route('home', lang) }, { name: 'Methode', path }])]} breadcrumbs={[{ label: 'Methode' }]}>
   <article class="prose prose-slate max-w-none">
-    <h1>Hoe BE Schoolvakanties rekent</h1>
+    <h1>Hoe Vakantieteller rekent</h1>
     <p>Elke rekenaar werkt in uw browser; de Gemeenschap, het jaar of de verlofdagen die u kiest, verlaten uw toestel niet. De kalenders en wetteksten zijn laatst nagelezen op {d(K.P.retrieved_at)}.</p>
 
     <h2>Vlaamse Gemeenschap: berekend en getest</h2>

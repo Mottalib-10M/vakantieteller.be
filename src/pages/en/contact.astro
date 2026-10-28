@@ -6,7 +6,7 @@ import { contactPageSchema } from '../../lib/seo';
 const lang = 'en';
 const description = "Write to us if a school break, a public holiday or a replacement day looks wrong, or if you would like to show the holiday countdown on your own website.";
 ---
-<PageLayout title="Contact BE Schoolvakanties: report an error or embed it" description={description} lang={lang} noindex={true} jsonLd={[contactPageSchema({ name: 'Contact', description, path: route('contact', lang), lang })]} breadcrumbs={[{ label: 'Contact' }]} showAuthor={false}>
+<PageLayout title="Contact Vakantieteller: report an error or embed it" description={description} lang={lang} noindex={true} jsonLd={[contactPageSchema({ name: 'Contact', description, path: route('contact', lang), lang })]} breadcrumbs={[{ label: 'Contact' }]} showAuthor={false}>
   <div class="prose prose-slate max-w-none">
     <h1>Contact</h1>
     <p>Email, usually answered within a week: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.</p>

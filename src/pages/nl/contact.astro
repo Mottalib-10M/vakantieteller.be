@@ -6,7 +6,7 @@ import { contactPageSchema } from '../../lib/seo';
 const lang = 'nl';
 const description = "Schrijf ons als een schoolvakantie, een feestdag of een vervangingsdag niet klopt, of als u de teller tot de volgende vakantie op uw eigen site wilt tonen.";
 ---
-<PageLayout title="Contact BE Schoolvakanties: fout melden of widget insluiten" description={description} lang={lang} noindex={true} jsonLd={[contactPageSchema({ name: 'Contact', description, path: route('contact', lang), lang })]} breadcrumbs={[{ label: 'Contact' }]} showAuthor={false}>
+<PageLayout title="Contact Vakantieteller: fout melden of widget insluiten" description={description} lang={lang} noindex={true} jsonLd={[contactPageSchema({ name: 'Contact', description, path: route('contact', lang), lang })]} breadcrumbs={[{ label: 'Contact' }]} showAuthor={false}>
   <div class="prose prose-slate max-w-none">
     <h1>Contact</h1>
     <p>E-mail, meestal beantwoord binnen een week: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.</p>

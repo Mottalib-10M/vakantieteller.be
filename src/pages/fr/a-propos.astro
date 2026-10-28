@@ -7,8 +7,8 @@ import { srcLink } from '../../lib/helpers';
 import { profilePageSchema, breadcrumbSchema } from '../../lib/seo';
 const lang = 'fr';
 const path = route('about', lang);
-const title = 'BE Schoolvakanties : éditeur, sources et indépendance';
-const description = 'Qui publie BE Schoolvakanties : Radif Partners, indépendant et sans offre de voyage. D’où viennent les calendriers scolaires, les jours fériés et Pâques.';
+const title = 'Qui publie Vakantieteller : éditeur, sources, indépendance';
+const description = 'Qui publie Vakantieteller : Radif Partners, indépendant et sans offre de voyage. D’où viennent les calendriers scolaires, les jours fériés et la date de Pâques.';
 const s = (k: string, t: string) => srcLink(k, lang, t);
 ---
 <PageLayout title={title} description={description} lang={lang} jsonLd={[profilePageSchema({ path, lang }), breadcrumbSchema([{ name: 'Accueil', path: route('home', lang) }, { name: 'À propos', path }])]} breadcrumbs={[{ label: 'À propos' }]}>

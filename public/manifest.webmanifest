@@ -1,6 +1,6 @@
 {
- "name": "BE Schoolvakanties",
- "short_name": "BE Schoolvakanties",
+ "name": "Vakantieteller",
+ "short_name": "Vakantieteller",
  "description": "Schoolvakanties 2026-2027 en 2027-2028 in België voor de drie Gemeenschappen, met aftellen, feestdagen, vervangingsdagen en brugdagen tot 2028.",
  "start_url": "/nl/",
  "display": "standalone",

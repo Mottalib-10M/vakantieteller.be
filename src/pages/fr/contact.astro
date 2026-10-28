@@ -1,0 +1,20 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { CONTACT_EMAIL } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+import { contactPageSchema } from '../../lib/seo';
+const lang = 'fr';
+const description = "Écrivez-nous si un congé scolaire, un jour férié ou un jour de remplacement vous semble faux, ou pour afficher le compte à rebours sur votre propre site.";
+---
+<PageLayout title="Contact BE Schoolvakanties : signaler une erreur, widget" description={description} lang={lang} noindex={true} jsonLd={[contactPageSchema({ name: 'Contact', description, path: route('contact', lang), lang })]} breadcrumbs={[{ label: 'Contact' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Contact</h1>
+    <p>Adresse e-mail, réponse en général sous une semaine : <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.</p>
+    <h2>Une date vous semble fausse</h2>
+    <p>Indiquez la page, la Communauté, l’année scolaire et, si possible, la publication officielle (enseignement.be, vlaanderen.be ou la Communauté germanophone). Nous vérifions la source et corrigeons en quelques jours.</p>
+    <h2>Intégrer le compte à rebours</h2>
+    <p>Écoles, associations de parents, mouvements de jeunesse et médias locaux peuvent l’afficher gratuitement : voir le <a href={route('widget', lang)}>widget</a>.</p>
+    <h2>Ce que nous ne faisons pas</h2>
+    <p>Pas de conseil juridique sur les congés ou les jours de remplacement, pas d’information sur les journées pédagogiques d’une école précise, pas de réservation de voyage.</p>
+  </div>
+</PageLayout>

@@ -1,0 +1,20 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { CONTACT_EMAIL } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+import { contactPageSchema } from '../../lib/seo';
+const lang = 'en';
+const description = "Write to us if a school break, a public holiday or a replacement day looks wrong, or if you would like to show the holiday countdown on your own website.";
+---
+<PageLayout title="Contact BE Schoolvakanties: report an error or embed it" description={description} lang={lang} noindex={true} jsonLd={[contactPageSchema({ name: 'Contact', description, path: route('contact', lang), lang })]} breadcrumbs={[{ label: 'Contact' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Contact</h1>
+    <p>Email, usually answered within a week: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.</p>
+    <h2>A date looks wrong</h2>
+    <p>Tell us the page, the Community, the school year and, if you can, the official notice (vlaanderen.be, enseignement.be or the German-speaking Community). We check the source and correct within a few days.</p>
+    <h2>Embed the countdown</h2>
+    <p>Schools, parents’ associations, youth groups and local media can show it for free: see the <a href={route('widget', lang)}>widget</a>.</p>
+    <h2>What we do not do</h2>
+    <p>No legal advice on leave or replacement days, no information on a particular school’s in-service days and no travel booking.</p>
+  </div>
+</PageLayout>

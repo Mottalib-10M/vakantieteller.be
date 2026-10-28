@@ -1,0 +1,14 @@
+# Portail officiel de la Communauté flamande : il publie le calendrier scolaire flamand (schoolvakanties) et les règles des journées pédagogiques.
+vlaanderen.be
+
+# Portail officiel de l'enseignement de la Fédération Wallonie-Bruxelles : il publie le calendrier scolaire de la FWB.
+enseignement.be
+
+# SPF Emploi, Travail et Concertation sociale (néerlandais) : jours fériés légaux et jours de remplacement.
+werk.belgie.be
+
+# SPF Emploi, Travail et Concertation sociale (français) : même page que werk.belgie.be.
+emploi.belgique.be
+
+# Moniteur belge / Justel (SPF Justice) : texte consolidé de la loi du 4 janvier 1974 relative aux jours fériés.
+ejustice.just.fgov.be

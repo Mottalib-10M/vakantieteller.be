@@ -1,0 +1,47 @@
+---
+/** Methode: Vlaamse regels, gepubliceerde kalenders FWB en DG, feestdagen, vervangingsdagen, brugdagen, tests, grenzen. Elk getal uit de motor. */
+import PageLayout from '../../layouts/PageLayout.astro';
+import { route } from '../../i18n/routes';
+import { KIT as K } from '../../lib/kit';
+import { srcLink } from '../../lib/helpers';
+import { breadcrumbSchema, webPageSchema } from '../../lib/seo';
+import { displayDate } from '../../lib/format';
+const lang = 'nl';
+const path = route('method', lang);
+const title = 'Schoolvakanties België: methode, bronnen en controles';
+const description = 'Zo rekent BE Schoolvakanties: Vlaamse regels getest tegen vlaanderen.be, kalenders FWB en Ostbelgien zoals gepubliceerd, tien feestdagen uit de wet van 1974.';
+const s = (k: string, t: string) => srcLink(k, lang, t);
+const d = (x: string) => displayDate(x, 'nl-BE');
+const p10 = K.optimaliseer(2027, 10, { vervanging: 'volgende' });
+const wd27 = K.werkdagen(2027).reduce((a, b) => a + b, 0);
+---
+<PageLayout title={title} description={description} lang={lang} jsonLd={[webPageSchema({ name: 'Methode', description, path, lang }), breadcrumbSchema([{ name: 'Home', path: route('home', lang) }, { name: 'Methode', path }])]} breadcrumbs={[{ label: 'Methode' }]}>
+  <article class="prose prose-slate max-w-none">
+    <h1>Hoe BE Schoolvakanties rekent</h1>
+    <p>Elke rekenaar werkt in uw browser; de Gemeenschap, het jaar of de verlofdagen die u kiest, verlaten uw toestel niet. De kalenders en wetteksten zijn laatst nagelezen op {d(K.P.retrieved_at)}.</p>
+
+    <h2>Vlaamse Gemeenschap: berekend en getest</h2>
+    <p>De Vlaamse schoolkalender volgt vaste regels. De herfstvakantie is de week van 1 november (valt die op zondag, dan de week erna); de kerstvakantie duurt twee weken vanaf de maandag van de week van Kerstmis; de krokusvakantie is de zevende week voor Pasen; de paasvakantie duurt twee weken, met een regel voor een vroege en een late Pasen; de zomervakantie loopt van 1 juli tot 31 augustus. De motor past die regels toe, en een test vergelijkt het resultaat met de lijst op <Fragment set:html={s('vg-vakanties', 'vlaanderen.be')} /> voor zeven schooljaren, van 2023-2024 tot 2029-2030. Bij een afwijking gaat er niets online. De regels voor pedagogische studiedagen komen van <Fragment set:html={s('vg-studiedagen', 'de pagina over studiedagen')} />.</p>
+
+    <h2>Franstalige en Duitstalige Gemeenschap: overgenomen zoals gepubliceerd</h2>
+    <p>De kalender van de Fédération Wallonie-Bruxelles volgt sinds 2022 geen eenvoudige regel meer. We nemen hem daarom datum per datum over van <Fragment set:html={s('fwb-calendrier', 'enseignement.be')} />, voor de schooljaren 2026-2027 tot 2028-2029. In de regel voor Kerstmis 2028-2029 staat daar "maandag 25 december 2029"; 25 december 2029 is een dinsdag, 25 december 2028 een maandag, dus we gebruiken 2028. Het einde van de zomervakantie 2029 is nog niet gepubliceerd en staat er zo. De Duitstalige Gemeenschap legde haar kalender 2026-2029 vast; de officiële site weigert geautomatiseerde lezers, dus de data komen uit de <Fragment set:html={s('dg-kalender', 'publicatie in het GrenzEcho')} />. Ze worden van maandag tot vrijdag gepubliceerd; waar we dagen op een rij tellen, nemen we de weekends erbij.</p>
+
+    <h2>Wettelijke feestdagen en vervangingsdagen</h2>
+    <p>De tien feestdagen komen uit het koninklijk besluit van 18 april 1974, genomen op grond van de <Fragment set:html={s('wet-1974', 'wet van 4 januari 1974')} />: Nieuwjaar, Paasmaandag, 1 mei, Hemelvaart, Pinkstermaandag, 21 juli, 15 augustus, 1 november, 11 november en 25 december. Valt er een op een zondag of op een gewone inactiviteitsdag, dan krijgt de werknemer een vervangingsdag. Die wordt vastgelegd door het paritair comité, anders de ondernemingsraad, de vakbondsafvaardiging of een akkoord met de werknemers, en vóór 15 december van het jaar ervoor aangeplakt; zonder akkoord is het de eerste gewone werkdag na de feestdag, zoals de <Fragment set:html={s('fod-feestdagen', 'FOD Werkgelegenheid')} /> uitlegt. De rekenaars tonen die terugvalregel en zeggen erbij dat uw sector of bedrijf anders kan beslissen.</p>
+
+    <h2>Pasen en de beweeglijke dagen</h2>
+    <p>Paaszondag komt uit de <Fragment set:html={s('ostern-ptb', 'paasformule van Gauss')} />. Paasmaandag valt een dag later, Hemelvaart 39 en Pinkstermaandag 50 dagen later. Een tweede, onafhankelijke methode (Meeus) rekent elk jaar van 1600 tot 2600 opnieuw uit; beide geven overal dezelfde datum. In 2027 valt Pasen op {d(K.paaszondag(2027))}.</p>
+
+    <h2>Brugdagen en de optimaliseerder</h2>
+    <p>Het jaar wordt opgedeeld in blokken: vrije blokken (weekends, feestdagen, vervangingsdagen) en werkblokken (maandag tot vrijdag). Wie een heel werkblok vrij neemt, verbindt de vrije blokken ervoor en erna. Een dynamisch programma probeert elke combinatie en kiest die met de meeste vrije dagen; bij gelijkspel die met de minste verlofdagen. Voorbeeld 2027: {p10.verlof} verlofdagen geven {p10.vrij} vrije dagen. Van maandag tot vrijdag heeft 2027 {wd27} werkdagen zonder vervangingsdagen.</p>
+
+    <h2>Tijd en aftellen</h2>
+    <p>Een vakantie begint om middernacht in Brussel. De teller zet dat moment om naar de klok van uw toestel, met de Belgische zomertijd van de laatste zondag van maart tot de laatste zondag van oktober. Op het scherm verschijnt bij de eerste weergave de stand van de publicatiedag; daarna neemt uw klok het over.</p>
+
+    <h2>Grenzen</h2>
+    <p>De rekenaars kennen de pedagogische studiedagen van uw school niet, en ook niet de collectieve sluiting of het uurrooster van uw werkgever. De feestdag van een Gemeenschap (11 juli, 27 september, 15 november) is geen wettelijke feestdag in de privésector; u kunt hem als vrij aanduiden. Europese en internationale scholen volgen eigen kalenders.</p>
+
+    <h2>Updates</h2>
+    <p>We lezen de kalenders opnieuw na elke publicatie van een nieuw schooljaar en minstens eenmaal per jaar. Meld fouten via <a href={route('contact', lang)}>contact</a>; hoe we verbeteren, staat in het <a href={route('editorial', lang)}>redactiebeleid</a>.</p>
+  </article>
+</PageLayout>

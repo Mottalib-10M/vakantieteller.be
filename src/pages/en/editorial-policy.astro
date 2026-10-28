@@ -1,0 +1,27 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { AUTHOR_NAME, CONTACT_EMAIL, LAST_UPDATED, REVIEW_CYCLE_MONTHS } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+import { displayDate } from '../../lib/format';
+const lang = 'en';
+---
+<PageLayout title="Editorial policy BE Schoolvakanties: sources and corrections" description="Where the school breaks, public holidays and replacement days come from, the order in which we read sources, how we test, and what happens when we are wrong." lang={lang} noindex={true} breadcrumbs={[{ label: 'Editorial policy' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Editorial policy and corrections</h1>
+    <p>A wrong break date costs a day of childcare, a wrong replacement day a day of leave. This page explains where every date comes from and what happens when one is wrong.</p>
+    <h2>Responsibility</h2><p>Content and tools are the responsibility of {AUTHOR_NAME}. Contact: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.</p>
+    <h2>Order of sources</h2>
+    <ol>
+      <li><strong>The Communities themselves</strong>: the school calendars on vlaanderen.be and enseignement.be, and the decision of the German-speaking Community government;</li>
+      <li><strong>Federal law</strong>: the Act of 4 January 1974 on public holidays and its implementing decree of 18 April 1974, with the guidance of the federal employment service;</li>
+      <li><strong>Calculation rules</strong>: Gauss’s Easter formula and ISO 8601 week numbers.</li>
+    </ol>
+    <p>Calendar sites, travel portals and newspaper articles are not sources, with one exception we state openly: the German-speaking Community’s official site refuses automated readers, so we take its calendar from a press report and recheck it with every new version. Anything not officially fixed, such as a school’s in-service days, is presented as such.</p>
+    <h2>Computed or copied, never guessed</h2><p>The Flemish breaks and all public holidays are computed from their rule, and tests compare the result with the official list. The French and German-speaking calendars are copied date by date. A year that has not been published is marked "not yet published".</p>
+    <h2>Review cycle</h2><p>A full review at least every {REVIEW_CYCLE_MONTHS} months and whenever a new school calendar or legal change appears.</p>
+    <h2>When we get something wrong</h2>
+    <ol><li>Check against the source.</li><li>Fix the rule or the data and add a test.</li><li>Republish the corrected date on every page at once.</li></ol>
+    <h2>Independence</h2><p>No money from travel firms, accommodation providers or authorities. No affiliate links, no sponsored content, no data-collection form.</p>
+    <p>See also the <a href={route('method', lang)}>method</a>. Version of {displayDate(LAST_UPDATED, 'en-GB')}.</p>
+  </div>
+</PageLayout>

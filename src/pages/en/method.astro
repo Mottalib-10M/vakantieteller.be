@@ -1,0 +1,47 @@
+---
+/** Method: Flemish rules, published FWB and DG calendars, public holidays, replacement days, bridges, tests, limits. Every number from the engine. */
+import PageLayout from '../../layouts/PageLayout.astro';
+import { route } from '../../i18n/routes';
+import { KIT as K } from '../../lib/kit';
+import { srcLink } from '../../lib/helpers';
+import { breadcrumbSchema, webPageSchema } from '../../lib/seo';
+import { displayDate } from '../../lib/format';
+const lang = 'en';
+const path = route('method', lang);
+const title = 'School holidays in Belgium: method, sources and checks';
+const description = 'How BE Schoolvakanties works: Flemish rules tested against vlaanderen.be, French and German-speaking calendars as published, ten holidays from the 1974 Act.';
+const s = (k: string, t: string) => srcLink(k, lang, t);
+const d = (x: string) => displayDate(x, 'en-GB');
+const p10 = K.optimaliseer(2027, 10, { vervanging: 'volgende' });
+const wd27 = K.werkdagen(2027).reduce((a, b) => a + b, 0);
+---
+<PageLayout title={title} description={description} lang={lang} jsonLd={[webPageSchema({ name: 'Method', description, path, lang }), breadcrumbSchema([{ name: 'Home', path: route('home', lang) }, { name: 'Method', path }])]} breadcrumbs={[{ label: 'Method' }]}>
+  <article class="prose prose-slate max-w-none">
+    <h1>How BE Schoolvakanties calculates</h1>
+    <p>Every tool runs in your browser; the Community, year or leave days you choose never leave your device. The calendars and legal texts were last read on {d(K.P.retrieved_at)}.</p>
+
+    <h2>Flemish Community: computed and tested</h2>
+    <p>The Flemish school calendar follows fixed rules: the week of 1 November for autumn (the week after if 1 November is a Sunday), two weeks at Christmas from the Monday of Christmas week, the seventh week before Easter for carnival, two weeks at Easter with a rule for early and late Easters, and summer from 1 July to 31 August. The engine applies those rules, and a test compares the result with the list on <Fragment set:html={s('vg-vakanties', 'vlaanderen.be')} /> for seven school years, 2023-2024 to 2029-2030. If anything differs, nothing goes live. The in-service day rules come from <Fragment set:html={s('vg-studiedagen', 'the Flemish page on in-service days')} />.</p>
+
+    <h2>French and German-speaking Communities: copied as published</h2>
+    <p>Since 2022 the Fédération Wallonie-Bruxelles calendar no longer follows a simple rule, so we copy it date by date from <Fragment set:html={s('fwb-calendrier', 'enseignement.be')} /> for 2026-2027 to 2028-2029. Its Christmas line for 2028-2029 reads "Monday 25 December 2029"; 25 December 2029 is a Tuesday and 25 December 2028 a Monday, so we use 2028. The end of summer 2029 has not been published, and the site says so. The German-speaking Community fixed its 2026-2029 calendar; its official site refuses automated readers, so the dates come from the <Fragment set:html={s('dg-kalender', 'GrenzEcho report')} />. They are published Monday to Friday; where we count days in a row, we add the weekends.</p>
+
+    <h2>Public holidays and replacement days</h2>
+    <p>The ten holidays come from the Royal Decree of 18 April 1974 under the <Fragment set:html={s('wet-1974', 'Act of 4 January 1974')} />: New Year’s Day, Easter Monday, 1 May, Ascension Day, Whit Monday, 21 July, 15 August, 1 November, 11 November and 25 December. One that falls on a Sunday or a usual non-working day is replaced. The replacement is set by the joint committee, failing that by the works council, the union delegation or an agreement with staff, and posted before 15 December of the previous year; without a decision it is the first ordinary working day after the holiday, as the <Fragment set:html={s('fod-feestdagen', 'federal employment service')} /> explains. The tools show that default and remind you that your sector may decide otherwise.</p>
+
+    <h2>Easter and movable days</h2>
+    <p>Easter Sunday comes from <Fragment set:html={s('ostern-ptb', 'Gauss’s Easter formula')} />. Easter Monday is one day later, Ascension Day 39 and Whit Monday 50 days later. A second, independent method (Meeus) recomputes every year from 1600 to 2600, and both agree throughout. In 2027 Easter falls on {d(K.paaszondag(2027))}.</p>
+
+    <h2>Bridge days and the optimiser</h2>
+    <p>The year is split into free blocks (weekends, holidays, replacement days) and working blocks (Monday to Friday). Taking a whole working block off joins the free blocks on either side. A dynamic programme tries every combination and keeps the one with the most days off, and on a tie the one using fewer leave days. In 2027, {p10.verlof} leave days give {p10.vrij} days off. The year has {wd27} working days from Monday to Friday, before replacement days.</p>
+
+    <h2>Time and countdowns</h2>
+    <p>A break starts at midnight in Brussels. The counter converts that moment to your device clock, using Belgian summer time from the last Sunday of March to the last Sunday of October. On first display the page shows the situation on its publication day; your clock then takes over.</p>
+
+    <h2>Limits</h2>
+    <p>The tools do not know your school’s in-service days, nor your employer’s shutdown or rota. A Community day (11 July, 27 September, 15 November) is not a statutory holiday in the private sector; you can mark it as a day off. European and international schools have their own calendars.</p>
+
+    <h2>Updates</h2>
+    <p>We reread the calendars whenever a new school year is published and at least once a year. Report mistakes on the <a href={route('contact', lang)}>contact page</a>; how we correct them is in the <a href={route('editorial', lang)}>editorial policy</a>.</p>
+  </article>
+</PageLayout>

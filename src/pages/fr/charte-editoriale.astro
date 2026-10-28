@@ -1,0 +1,27 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { AUTHOR_NAME, CONTACT_EMAIL, LAST_UPDATED, REVIEW_CYCLE_MONTHS } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+import { displayDate } from '../../lib/format';
+const lang = 'fr';
+---
+<PageLayout title="Charte éditoriale de BE Schoolvakanties : sources, erreurs" description="D’où viennent les congés scolaires, les jours fériés et les remplacements, dans quel ordre nous lisons les sources, comment nous testons et corrigeons." lang={lang} noindex={true} breadcrumbs={[{ label: 'Charte éditoriale' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Charte éditoriale et corrections</h1>
+    <p>Une date de congé erronée coûte une journée de garde, un jour de remplacement erroné un jour de congé. Cette page explique d’où vient chaque date et ce qui se passe quand l’une d’elles est fausse.</p>
+    <h2>Responsabilité</h2><p>Le contenu et les outils relèvent de {AUTHOR_NAME}. Contact : <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.</p>
+    <h2>Ordre des sources</h2>
+    <ol>
+      <li><strong>Les Communautés elles-mêmes</strong> : le calendrier scolaire publié sur enseignement.be, sur vlaanderen.be et la décision du gouvernement de la Communauté germanophone ;</li>
+      <li><strong>La législation fédérale</strong> : la loi du 4 janvier 1974 relative aux jours fériés et son arrêté d’exécution du 18 avril 1974, avec les explications du SPF Emploi ;</li>
+      <li><strong>Les règles de calcul</strong> : la formule de Pâques de Gauss et la numérotation des semaines ISO 8601.</li>
+    </ol>
+    <p>Les sites de calendriers, les portails de voyage et les articles de presse ne sont pas des sources, à une exception près que nous signalons : le site officiel de la Communauté germanophone refuse les lecteurs automatisés, et nous reprenons son calendrier d’une publication de presse, revérifiée à chaque nouvelle version. Ce qui n’est pas fixé officiellement, comme les journées pédagogiques d’une école, est présenté comme tel.</p>
+    <h2>Calculé ou repris, jamais deviné</h2><p>Les congés flamands et tous les jours fériés sont calculés à partir de leur règle, et des tests comparent le résultat à la liste officielle. Les calendriers francophone et germanophone sont repris date par date. Une année non publiée est signalée comme « pas encore publiée ».</p>
+    <h2>Cycle de révision</h2><p>Une relecture complète au moins tous les {REVIEW_CYCLE_MONTHS} mois et à chaque nouveau calendrier scolaire ou modification légale.</p>
+    <h2>Quand nous nous trompons</h2>
+    <ol><li>Nous vérifions la source.</li><li>Nous corrigeons la règle ou la donnée et ajoutons un test.</li><li>Nous republions la date corrigée sur toutes les pages à la fois.</li></ol>
+    <h2>Indépendance</h2><p>Aucun argent d’agences de voyage, d’hébergeurs ou d’administrations. Pas de liens d’affiliation, pas de contenu sponsorisé, pas de formulaire de collecte.</p>
+    <p>Voir aussi la <a href={route('method', lang)}>méthode</a>. Version du {displayDate(LAST_UPDATED, 'fr-BE')}.</p>
+  </div>
+</PageLayout>

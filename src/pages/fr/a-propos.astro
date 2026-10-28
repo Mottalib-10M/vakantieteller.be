@@ -1,0 +1,32 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import LegalIdentity from '../../components/LegalIdentity.astro';
+import { route } from '../../i18n/routes';
+import { AUTHOR_NAME, AUTHOR_DESC, CONTACT_EMAIL, SITE_NAMES } from '../../data/site-config';
+import { srcLink } from '../../lib/helpers';
+import { profilePageSchema, breadcrumbSchema } from '../../lib/seo';
+const lang = 'fr';
+const path = route('about', lang);
+const title = 'BE Schoolvakanties : éditeur, sources et indépendance';
+const description = 'Qui publie BE Schoolvakanties : Radif Partners, indépendant et sans offre de voyage. D’où viennent les calendriers scolaires, les jours fériés et Pâques.';
+const s = (k: string, t: string) => srcLink(k, lang, t);
+---
+<PageLayout title={title} description={description} lang={lang} jsonLd={[profilePageSchema({ path, lang }), breadcrumbSchema([{ name: 'Accueil', path: route('home', lang) }, { name: 'À propos', path }])]} breadcrumbs={[{ label: 'À propos' }]}>
+  <article class="prose prose-slate max-w-none">
+    <h1>À propos de {SITE_NAMES[lang]}</h1>
+    <p>{AUTHOR_DESC.fr}</p>
+    <h2>Pourquoi ce site</h2>
+    <p>Depuis la réforme du calendrier de l’enseignement francophone en 2022, la Belgique a trois calendriers scolaires qui diffèrent sur cinq points. Les listes habituelles donnent une suite de dates par Communauté, mais les mettent rarement côte à côte, ne comptent pas les jours où deux enfants sont libres ensemble et confondent congés scolaires et jours fériés légaux. Ce site aligne les trois calendriers, compte les jours jusqu’au prochain congé et les relie aux jours fériés, jours de remplacement et ponts des parents qui travaillent.</p>
+    <h2>Qui le publie</h2>
+    <p>L’éditeur est {AUTHOR_NAME}, une société qui construit des outils de calcul à partir de règles publiques. {AUTHOR_NAME} n’est ni une administration, ni un réseau d’enseignement, ni un groupe de pression, n’a de lien avec aucune Communauté ni aucun ministère et n’utilise aucun logo officiel. Le site ne vend ni voyages, ni séjours, ni calendriers, et ne contient aucun lien d’affiliation.</p>
+    <LegalIdentity lang={lang} />
+    <h2>D’où viennent les données</h2>
+    <p>Le calendrier francophone figure sur <Fragment set:html={s('fwb-calendrier', 'enseignement.be')} />, le calendrier flamand sur <Fragment set:html={s('vg-vakanties', 'vlaanderen.be')} />, le calendrier germanophone dans la <Fragment set:html={s('dg-kalender', 'publication du gouvernement')} />. Les jours fériés viennent de la <Fragment set:html={s('wet-1974', 'loi du 4 janvier 1974')} /> et des explications du <Fragment set:html={s('fod-feestdagen', 'SPF Emploi')} /> ; Pâques, de la <Fragment set:html={s('ostern-ptb', 'formule de Gauss')} />. Le détail des calculs est dans la <a href={route('method', lang)}>méthode</a> ; la façon dont nous corrigeons, dans la <a href={route('editorial', lang)}>charte éditoriale</a>.</p>
+    <h2>Vos données</h2>
+    <p>Chaque outil fonctionne dans votre navigateur. Ce que vous choisissez n’est ni envoyé ni conservé. Il n’y a ni compte ni formulaire. Voir la <a href={route('privacy', lang)}>politique de confidentialité</a>.</p>
+    <h2>Ce que le site ne fait pas</h2>
+    <p>Il ne connaît pas les journées pédagogiques de votre école et ne décide rien de vos congés. Si le 27 septembre ou le 24 décembre est chômé pour vous, c’est votre règlement de travail ou votre convention sectorielle qui le dit.</p>
+    <h2>Nous écrire</h2>
+    <p><a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> si un congé, un jour férié ou une date vous semble faux.</p>
+  </article>
+</PageLayout>

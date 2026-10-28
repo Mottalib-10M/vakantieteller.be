@@ -1,0 +1,114 @@
+{
+ "_lisezmoi": "Paramètres datés du site belge. Vlaanderen : dates calculées par src/lib/engine/school.ts et testées contre la liste de vlaanderen.be (2023-2024 à 2029-2030), lue le 2026-10-28. FWB : dates reprises de enseignement.be (page 23953), lue le 2026-10-28 ; la ligne Noël 2028-2029 y porte « lundi 25 décembre 2029 », coquille évidente pour 2028 (le 25 décembre 2028 est un lundi). DG : calendrier 2026-2029 arrêté par le gouvernement de la Communauté germanophone, lu dans GrenzEcho du 21 novembre 2025 (ostbelgienbildung.be refuse les robots) ; dates publiées du lundi au vendredi. Fériés : loi du 4 janvier 1974 et arrêté royal du 18 avril 1974, calculés.",
+ "year": 2026,
+ "retrieved_at": "2026-10-28",
+ "valid_from": "2026-01-01",
+ "valid_to": "2029-12-31",
+ "jaren": [2026, 2027, 2028],
+ "school": {
+  "FWB": {
+   "2026": {
+    "start": "2026-08-24", "laatste": "2027-07-02",
+    "herfst": ["2026-10-19", "2026-11-01"], "kerst": ["2026-12-21", "2027-01-03"], "krokus": ["2027-02-22", "2027-03-07"], "pasen": ["2027-04-26", "2027-05-09"], "zomer": ["2027-07-03", "2027-08-29"],
+    "vrij": [
+     { "date": "2026-09-27", "nl": "Feest van de Fédération Wallonie-Bruxelles", "fr": "Fête de la Communauté française", "en": "French Community Day" },
+     { "date": "2026-11-02", "nl": "Allerzielen", "fr": "Fête des morts", "en": "All Souls' Day" },
+     { "date": "2026-11-11", "nl": "Wapenstilstand", "fr": "Jour de l’Armistice", "en": "Armistice Day" },
+     { "date": "2027-03-29", "nl": "Paasmaandag", "fr": "Lundi de Pâques", "en": "Easter Monday" },
+     { "date": "2027-05-06", "nl": "Hemelvaartsdag", "fr": "Jeudi de l’Ascension", "en": "Ascension Day" },
+     { "date": "2027-05-17", "nl": "Pinkstermaandag", "fr": "Lundi de Pentecôte", "en": "Whit Monday" }
+    ]
+   },
+   "2027": {
+    "start": "2027-08-30", "laatste": "2028-07-07",
+    "herfst": ["2027-10-25", "2027-11-07"], "kerst": ["2027-12-27", "2028-01-09"], "krokus": ["2028-02-28", "2028-03-12"], "pasen": ["2028-05-01", "2028-05-14"], "zomer": ["2028-07-08", "2028-08-27"],
+    "vrij": [
+     { "date": "2027-09-27", "nl": "Feest van de Fédération Wallonie-Bruxelles", "fr": "Fête de la Communauté française", "en": "French Community Day" },
+     { "date": "2027-11-11", "nl": "Wapenstilstand", "fr": "Jour de l’Armistice", "en": "Armistice Day" },
+     { "date": "2028-04-17", "nl": "Paasmaandag", "fr": "Lundi de Pâques", "en": "Easter Monday" },
+     { "date": "2028-05-25", "nl": "Hemelvaartsdag", "fr": "Jeudi de l’Ascension", "en": "Ascension Day" },
+     { "date": "2028-06-05", "nl": "Pinkstermaandag", "fr": "Lundi de Pentecôte", "en": "Whit Monday" }
+    ]
+   },
+   "2028": {
+    "start": "2028-08-28", "laatste": "2029-07-06",
+    "herfst": ["2028-10-23", "2028-11-05"], "kerst": ["2028-12-25", "2029-01-07"], "krokus": ["2029-02-26", "2029-03-11"], "pasen": ["2029-04-30", "2029-05-13"], "zomer": ["2029-07-07", null],
+    "vrij": [
+     { "date": "2028-09-27", "nl": "Feest van de Fédération Wallonie-Bruxelles", "fr": "Fête de la Communauté française", "en": "French Community Day" },
+     { "date": "2028-11-11", "nl": "Wapenstilstand", "fr": "Jour de l’Armistice", "en": "Armistice Day" },
+     { "date": "2029-04-02", "nl": "Paasmaandag", "fr": "Lundi de Pâques", "en": "Easter Monday" },
+     { "date": "2029-05-10", "nl": "Hemelvaartsdag", "fr": "Jeudi de l’Ascension", "en": "Ascension Day" },
+     { "date": "2029-05-21", "nl": "Pinkstermaandag", "fr": "Lundi de Pentecôte", "en": "Whit Monday" }
+    ]
+   }
+  },
+  "DG": {
+   "2026": {
+    "start": "2026-09-01", "laatste": "2027-06-30",
+    "herfst": ["2026-11-02", "2026-11-06"], "kerst": ["2026-12-21", "2027-01-01"], "krokus": ["2027-02-08", "2027-02-12"], "pasen": ["2027-03-29", "2027-04-09"], "zomer": ["2027-07-01", "2027-08-31"],
+    "vrij": [
+     { "date": "2026-11-11", "nl": "Wapenstilstand", "fr": "Armistice", "en": "Armistice Day" },
+     { "date": "2026-11-15", "nl": "Feest van de Duitstalige Gemeenschap", "fr": "Fête de la Communauté germanophone", "en": "German-speaking Community Day" },
+     { "date": "2027-05-01", "nl": "Dag van de Arbeid", "fr": "Fête du Travail", "en": "Labour Day" },
+     { "date": "2027-05-06", "nl": "Hemelvaartsdag", "fr": "Ascension", "en": "Ascension Day" },
+     { "date": "2027-05-17", "nl": "Pinkstermaandag", "fr": "Lundi de Pentecôte", "en": "Whit Monday" }
+    ]
+   },
+   "2027": {
+    "start": "2027-09-01", "laatste": "2028-06-30",
+    "herfst": ["2027-11-01", "2027-11-05"], "kerst": ["2027-12-27", "2028-01-07"], "krokus": ["2028-02-28", "2028-03-03"], "pasen": ["2028-04-17", "2028-04-28"], "zomer": ["2028-07-01", "2028-08-31"],
+    "vrij": [
+     { "date": "2027-11-11", "nl": "Wapenstilstand", "fr": "Armistice", "en": "Armistice Day" },
+     { "date": "2027-11-15", "nl": "Feest van de Duitstalige Gemeenschap", "fr": "Fête de la Communauté germanophone", "en": "German-speaking Community Day" },
+     { "date": "2027-12-24", "nl": "Kerstavond (lesvrij)", "fr": "Veille de Noël (sans cours)", "en": "Christmas Eve (no lessons)" },
+     { "date": "2028-05-01", "nl": "Dag van de Arbeid", "fr": "Fête du Travail", "en": "Labour Day" },
+     { "date": "2028-05-25", "nl": "Hemelvaartsdag", "fr": "Ascension", "en": "Ascension Day" },
+     { "date": "2028-06-05", "nl": "Pinkstermaandag", "fr": "Lundi de Pentecôte", "en": "Whit Monday" }
+    ]
+   },
+   "2028": {
+    "start": "2028-09-01", "laatste": "2029-06-30",
+    "herfst": ["2028-10-30", "2028-11-03"], "kerst": ["2028-12-25", "2029-01-05"], "krokus": ["2029-02-12", "2029-02-16"], "pasen": ["2029-04-02", "2029-04-13"], "zomer": ["2029-07-01", "2029-08-31"],
+    "vrij": [
+     { "date": "2028-11-11", "nl": "Wapenstilstand", "fr": "Armistice", "en": "Armistice Day" },
+     { "date": "2028-11-15", "nl": "Feest van de Duitstalige Gemeenschap", "fr": "Fête de la Communauté germanophone", "en": "German-speaking Community Day" },
+     { "date": "2029-05-01", "nl": "Dag van de Arbeid", "fr": "Fête du Travail", "en": "Labour Day" },
+     { "date": "2029-05-10", "nl": "Hemelvaartsdag", "fr": "Ascension", "en": "Ascension Day" },
+     { "date": "2029-05-21", "nl": "Pinkstermaandag", "fr": "Lundi de Pentecôte", "en": "Whit Monday" }
+    ]
+   }
+  }
+ },
+ "sources": {
+  "vg-vakanties": {
+   "url": "https://www.vlaanderen.be/onderwijs-en-vorming/wat-mag-en-moet-op-school/schoolvakanties-vrije-dagen-en-afwezigheden/schoolvakanties",
+   "label": { "nl": "Vlaanderen.be: schoolvakanties per schooljaar, tot 2029-2030", "fr": "Vlaanderen.be (Communauté flamande) : vacances scolaires par année, jusqu’en 2029-2030", "en": "Vlaanderen.be (Flemish government): school holidays by school year, up to 2029-2030" }
+  },
+  "vg-studiedagen": {
+   "url": "https://www.vlaanderen.be/onderwijsprofessionals/werken-in-het-onderwijs/loopbaan-en-ontwikkeling/professionalisering-nascholing-en-begeleiding-basis-tot-volwassenenonderwijs/pedagogische-studiedagen",
+   "label": { "nl": "Vlaanderen.be: pedagogische studiedagen vanaf 2026-2027", "fr": "Vlaanderen.be : journées pédagogiques en Flandre à partir de 2026-2027", "en": "Vlaanderen.be: teacher training days in Flanders from 2026-2027" }
+  },
+  "fwb-calendrier": {
+   "url": "https://www.enseignement.be/index.php?page=23953",
+   "label": { "nl": "Enseignement.be: schoolkalender van de Fédération Wallonie-Bruxelles 2026-2029", "fr": "Enseignement.be : calendrier scolaire de la Fédération Wallonie-Bruxelles 2026-2029", "en": "Enseignement.be: Wallonia-Brussels Federation school calendar 2026-2029" }
+  },
+  "dg-kalender": {
+   "url": "https://www.grenzecho.net/132284/artikel/2025-11-21/dg-legt-schulkalender-2026-2029-fest-alle-ferien-und-freien-tage-im-uberblick",
+   "label": { "nl": "GrenzEcho, 21 november 2025: de regering van de Duitstalige Gemeenschap legt de schoolkalender 2026-2029 vast", "fr": "GrenzEcho, 21 novembre 2025 : le gouvernement de la Communauté germanophone fixe le calendrier scolaire 2026-2029", "en": "GrenzEcho, 21 November 2025: the German-speaking Community government sets the 2026-2029 school calendar" }
+  },
+  "fod-feestdagen": {
+   "url": "https://werk.belgie.be/nl/themas/feestdagen-en-verloven/feestdagen",
+   "urls": { "fr": "https://emploi.belgique.be/fr/themes/jours-feries-et-conges/jours-feries" },
+   "label": { "nl": "FOD Werkgelegenheid: feestdagen en vervangingsdagen", "fr": "SPF Emploi : jours fériés et jours de remplacement", "en": "Federal Public Service Employment: public holidays and replacement days (Dutch)" }
+  },
+  "wet-1974": {
+   "url": "https://www.ejustice.just.fgov.be/cgi_loi/change_lg.pl?language=nl&la=N&cn=1974010401&table_name=wet",
+   "urls": { "fr": "https://www.ejustice.just.fgov.be/cgi_loi/change_lg.pl?language=fr&la=F&cn=1974010401&table_name=loi" },
+   "label": { "nl": "Wet van 4 januari 1974 betreffende de feestdagen (Justel)", "fr": "Loi du 4 janvier 1974 relative aux jours fériés (Justel)", "en": "Act of 4 January 1974 on public holidays (Justel, Dutch text)" }
+  },
+  "ostern-ptb": {
+   "url": "https://www.ptb.de/cms/ptb/fachabteilungen/abt4/fb-44/ag-441/darstellung-der-gesetzlichen-zeit/wann-ist-ostern.html",
+   "label": { "nl": "Physikalisch-Technische Bundesanstalt: de paasformule van Gauss", "fr": "Physikalisch-Technische Bundesanstalt : la formule de Pâques de Gauss", "en": "Physikalisch-Technische Bundesanstalt: Gauss's Easter formula" }
+  }
+ }
+}

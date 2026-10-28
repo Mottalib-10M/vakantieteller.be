@@ -1,0 +1,20 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { CONTACT_EMAIL } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+import { contactPageSchema } from '../../lib/seo';
+const lang = 'nl';
+const description = "Schrijf ons als een schoolvakantie, een feestdag of een vervangingsdag niet klopt, of als u de teller tot de volgende vakantie op uw eigen site wilt tonen.";
+---
+<PageLayout title="Contact BE Schoolvakanties: fout melden of widget insluiten" description={description} lang={lang} noindex={true} jsonLd={[contactPageSchema({ name: 'Contact', description, path: route('contact', lang), lang })]} breadcrumbs={[{ label: 'Contact' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Contact</h1>
+    <p>E-mail, meestal beantwoord binnen een week: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.</p>
+    <h2>Een datum klopt niet</h2>
+    <p>Vermeld de pagina, de Gemeenschap, het schooljaar en, als het kan, de officiële bekendmaking (vlaanderen.be, enseignement.be of de Duitstalige Gemeenschap). We controleren de bron en verbeteren binnen enkele dagen.</p>
+    <h2>De teller insluiten</h2>
+    <p>Scholen, oudercomités, jeugdbewegingen en lokale media kunnen de teller gratis tonen: zie <a href={route('widget', lang)}>widget</a>.</p>
+    <h2>Wat we niet doen</h2>
+    <p>Geen juridisch advies over verlof of vervangingsdagen, geen informatie over de studiedagen van een bepaalde school en geen reisboekingen.</p>
+  </div>
+</PageLayout>

@@ -1,0 +1,32 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import LegalIdentity from '../../components/LegalIdentity.astro';
+import { route } from '../../i18n/routes';
+import { AUTHOR_NAME, AUTHOR_DESC, CONTACT_EMAIL, SITE_NAMES } from '../../data/site-config';
+import { srcLink } from '../../lib/helpers';
+import { profilePageSchema, breadcrumbSchema } from '../../lib/seo';
+const lang = 'nl';
+const path = route('about', lang);
+const title = 'BE Schoolvakanties: uitgever, bronnen en onafhankelijkheid';
+const description = 'Wie BE Schoolvakanties uitgeeft: Radif Partners, onafhankelijk en zonder reisaanbod. Waar de schoolkalenders, de feestdagen en de datum van Pasen vandaan komen.';
+const s = (k: string, t: string) => srcLink(k, lang, t);
+---
+<PageLayout title={title} description={description} lang={lang} jsonLd={[profilePageSchema({ path, lang }), breadcrumbSchema([{ name: 'Home', path: route('home', lang) }, { name: 'Over ons', path }])]} breadcrumbs={[{ label: 'Over ons' }]}>
+  <article class="prose prose-slate max-w-none">
+    <h1>Over {SITE_NAMES[lang]}</h1>
+    <p>{AUTHOR_DESC.nl}</p>
+    <h2>Waarom deze site bestaat</h2>
+    <p>Sinds het Franstalig onderwijs in 2022 zijn kalender hervormde, heeft België drie schoolkalenders die op vijf punten van elkaar verschillen. De gangbare lijsten geven per Gemeenschap een rij data, maar zetten ze zelden naast elkaar, tellen niet hoeveel dagen twee kinderen samen vrij hebben en verwarren schoolvakanties met wettelijke feestdagen. Deze site zet de drie kalenders naast elkaar, telt af tot de volgende vakantie en koppelt ze aan de feestdagen, vervangingsdagen en brugdagen van werkende ouders.</p>
+    <h2>Wie de site uitgeeft</h2>
+    <p>De uitgever is {AUTHOR_NAME}, een bedrijf dat rekenhulpen bouwt op basis van publieke regels. {AUTHOR_NAME} is geen overheid, geen onderwijskoepel en geen belangengroep, heeft geen band met een Gemeenschap of een ministerie en gebruikt geen officiële logo's. De site verkoopt geen reizen, verblijven of kalenders en bevat geen affiliatielinks.</p>
+    <LegalIdentity lang={lang} />
+    <h2>Waar de gegevens vandaan komen</h2>
+    <p>De Vlaamse vakanties staan op <Fragment set:html={s('vg-vakanties', 'vlaanderen.be')} />, de Franstalige op <Fragment set:html={s('fwb-calendrier', 'enseignement.be')} />, de Duitstalige in de <Fragment set:html={s('dg-kalender', 'publicatie van de regering')} />. De feestdagen komen uit de <Fragment set:html={s('wet-1974', 'wet van 4 januari 1974')} /> en de uitleg van de <Fragment set:html={s('fod-feestdagen', 'FOD Werkgelegenheid')} />; Pasen uit de <Fragment set:html={s('ostern-ptb', 'formule van Gauss')} />. Hoe alles berekend wordt, staat bij de <a href={route('method', lang)}>methode</a>; hoe we fouten verbeteren, in het <a href={route('editorial', lang)}>redactiebeleid</a>.</p>
+    <h2>Uw gegevens</h2>
+    <p>Elke rekenaar werkt in uw browser. Wat u kiest, wordt niet verzonden en niet bewaard. Er is geen account en geen formulier. Zie de <a href={route('privacy', lang)}>privacyverklaring</a>.</p>
+    <h2>Wat de site niet doet</h2>
+    <p>Ze kent de pedagogische studiedagen van uw school niet en beslist niets over uw verlof. Of 11 juli, 27 september of 24 december voor u vrij is, staat in uw arbeidsreglement of sectorakkoord.</p>
+    <h2>Schrijf ons</h2>
+    <p><a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> als een vakantie, een feestdag of een datum niet klopt.</p>
+  </article>
+</PageLayout>

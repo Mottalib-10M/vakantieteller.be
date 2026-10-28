@@ -1,0 +1,27 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { AUTHOR_NAME, CONTACT_EMAIL, LAST_UPDATED, REVIEW_CYCLE_MONTHS } from '../../data/site-config';
+import { route } from '../../i18n/routes';
+import { displayDate } from '../../lib/format';
+const lang = 'nl';
+---
+<PageLayout title="Redactiebeleid BE Schoolvakanties: bronnen en verbeteringen" description="Waar de schoolvakanties, feestdagen en vervangingsdagen vandaan komen, in welke volgorde we bronnen lezen, hoe we testen en wat er gebeurt als we ons vergissen." lang={lang} noindex={true} breadcrumbs={[{ label: 'Redactiebeleid' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none">
+    <h1>Redactiebeleid en verbeteringen</h1>
+    <p>Een verkeerde vakantiedatum kost een dag opvang, een verkeerde vervangingsdag een verlofdag. Deze pagina legt uit waar elke datum vandaan komt en wat er gebeurt als er een niet klopt.</p>
+    <h2>Verantwoordelijkheid</h2><p>Inhoud en rekenaars vallen onder de verantwoordelijkheid van {AUTHOR_NAME}. Contact: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.</p>
+    <h2>Volgorde van de bronnen</h2>
+    <ol>
+      <li><strong>De Gemeenschappen zelf</strong>: de schoolkalender op vlaanderen.be, op enseignement.be en de beslissing van de regering van de Duitstalige Gemeenschap;</li>
+      <li><strong>Federale wetgeving</strong>: de wet van 4 januari 1974 betreffende de feestdagen en het uitvoeringsbesluit van 18 april 1974, met de uitleg van de FOD Werkgelegenheid;</li>
+      <li><strong>Rekenregels</strong>: de paasformule van Gauss en de weeknummering volgens ISO 8601.</li>
+    </ol>
+    <p>Kalendersites, reisportalen en krantenartikels zijn geen bron, met één uitzondering die we vermelden: de officiële site van de Duitstalige Gemeenschap weigert geautomatiseerde lezers, dus nemen we haar kalender over uit een krantenpublicatie en controleren we die bij elke nieuwe versie. Wat niet officieel vastligt, zoals de studiedagen van een school, noemen we zo.</p>
+    <h2>Berekend of overgenomen, nooit geraden</h2><p>De Vlaamse vakanties en alle feestdagen worden berekend uit hun regel, en tests vergelijken het resultaat met de officiële lijst. De Franstalige en Duitstalige kalenders worden datum per datum overgenomen. Is een jaar nog niet gepubliceerd, dan staat er "nog niet gepubliceerd".</p>
+    <h2>Herzieningscyclus</h2><p>Een volledige herlezing minstens om de {REVIEW_CYCLE_MONTHS} maanden en bij elke nieuwe schoolkalender of wetswijziging.</p>
+    <h2>Als we ons vergissen</h2>
+    <ol><li>We controleren de bron.</li><li>We verbeteren de regel of de gegevens en voegen een test toe.</li><li>We publiceren de verbeterde datum op elke pagina tegelijk.</li></ol>
+    <h2>Onafhankelijkheid</h2><p>Geen geld van reisbureaus, verblijven of overheden. Geen affiliatielinks, geen gesponsorde inhoud, geen formulier om gegevens te verzamelen.</p>
+    <p>Zie ook de <a href={route('method', lang)}>methode</a>. Versie van {displayDate(LAST_UPDATED, 'nl-BE')}.</p>
+  </div>
+</PageLayout>
